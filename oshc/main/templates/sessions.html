@@ -1,3 +1,5 @@
+{% extends 'base.html' %} {% load static %}
+{% block content %}
 <h1>Open Source Contributors Chat Sessions</h1>
 {% if all_sessions %}
     <ul>
@@ -10,3 +12,4 @@
 {% else %}
     <p>Not able to retrive sessions at the moment.</p>
 {% endif %}
+{% endblock %}

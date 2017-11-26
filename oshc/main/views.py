@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponseRedirect
-from main.models import chatSession, Contest
+from main.models import chatSession, Contest, video
 from django.shortcuts import render_to_response
 from django.template import RequestContext
 from .forms import ContestForm
@@ -44,7 +44,7 @@ def submit_contest(request):
 
 def sessions(request):
     all_sessions = video.objects.all()
-    return render_to_response('sessions.html', {'all_sessions' : all_sessions})
+    return render_to_response('sessions.html', {'all_sessions': all_sessions})
 
 
 def handler404(request):

@@ -29,3 +29,10 @@ class Contest(models.Model):
 
     def __str__(self):
         return self.name
+
+
+class video(models.Model):
+    link = models.URLField()
+
+    def __unicode__(self):
+        return self.link

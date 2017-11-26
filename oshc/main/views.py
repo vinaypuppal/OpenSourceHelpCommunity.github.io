@@ -42,6 +42,11 @@ def submit_contest(request):
     return render(request, 'contest_submission.html')
 
 
+def sessions(request):
+    all_sessions = video.objects.all()
+    return render_to_response('sessions.html', {'all_sessions' : all_sessions})
+
+
 def handler404(request):
     response = render_to_response('404.html', {},
                                   context_instance=RequestContext(request))

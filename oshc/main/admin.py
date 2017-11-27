@@ -7,7 +7,7 @@ from main.models import chatSession, Contest
 
 
 class chatSessionAdmin(admin.ModelAdmin):
-    list_display = ('title', 'start_date')
+    list_display = ('name', 'start_date')
 
 
 class contestAdmin(admin.ModelAdmin):

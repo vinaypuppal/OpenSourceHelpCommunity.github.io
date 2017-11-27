@@ -5,17 +5,18 @@ from django.db import models
 
 
 class chatSession(models.Model):
-    title = models.CharField(max_length=128, help_text="Session title")
+    name = models.CharField(max_length=128, help_text="Session title")
+    link = models.URLField(help_text="Chat session URL")
     profile_name = models.CharField(max_length=128,
                                     help_text="The person's name")
     profile_url = models.URLField(help_text="The Url of the person's website")
     description = models.TextField(max_length=512, help_text="Session details")
     start_date = models.DateTimeField()
     end_date = models.DateTimeField()
-    register_url = models.URLField(help_text="URL for the event registration")
+    link = models.URLField(help_text="Chat session URL")
 
     def __str__(self):
-        return self.title
+        return self.name
 
 
 class Contest(models.Model):
@@ -29,10 +30,3 @@ class Contest(models.Model):
 
     def __str__(self):
         return self.name
-
-
-class video(models.Model):
-    link = models.URLField()
-
-    def __unicode__(self):
-        return self.link

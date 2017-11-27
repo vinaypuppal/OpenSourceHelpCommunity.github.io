@@ -1,15 +1,15 @@
 from django.shortcuts import render
 from django.http import HttpResponseRedirect
-from main.models import chatSession, Contest, video
+from main.models import chatSession, Contest
 from django.shortcuts import render_to_response
 from django.template import RequestContext
 from .forms import ContestForm
 
 
 def home(request):
-    session_list = chatSession.objects.order_by('start_date')[:3]
-    context_dict = {'chatSession': session_list}
-    return render(request, 'index.html', context=context_dict)
+    # chat_session_list = chatSessions.objects.order_by('start_date')[:3]
+    # context_dict = {'chatSessions': chat_session_list}
+    return render(request, 'index.html')
 
 
 def request_session(request):
@@ -42,9 +42,10 @@ def submit_contest(request):
     return render(request, 'contest_submission.html')
 
 
-def sessions(request):
-    all_sessions = video.objects.all()
-    return render_to_response('sessions.html', {'all_sessions': all_sessions})
+def chat_sessions(request):
+    chat_session_list = chatSession.objects.all()
+    return render(request, 'chatsessions.html',
+                  context={'chat_session_list': chat_session_list})
 
 
 def handler404(request):
